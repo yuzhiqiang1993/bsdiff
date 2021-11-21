@@ -25,12 +25,16 @@ class MainViewModel : ViewModel() {
 
     /*文件后缀名*/
     private val suffix = "apk"
+
     /*旧文件*/
     private val oldFile = File(PathUtils.getExternalAppFilesPath(), "old.${suffix}")
+
     /*新文件*/
     private val newFile = File(PathUtils.getExternalAppFilesPath(), "new.${suffix}")
+
     /*补丁文件*/
     private val patchFile = File(PathUtils.getExternalAppFilesPath(), "patch.${suffix}")
+
     /*合并后的文件*/
     private val combineFile = File(PathUtils.getExternalAppFilesPath(), "combine.${suffix}")
 
@@ -44,8 +48,14 @@ class MainViewModel : ViewModel() {
                         ToastUtils.showShort("对比包缺失")
                         return@withContext
                     }
-                    /*生成差分包*/
-                    XeonBsDiffUtil.diff(newFile.absolutePath, oldFile.absolutePath, patchFile.absolutePath)
+
+                    /*生成补丁包，耗时操作，记得放在子线程  返回值 0表示成功*/
+                    val result = XeonBsDiffUtil.diff(
+                        newFile.absolutePath,//新文件path
+                        oldFile.absolutePath,//旧文件path
+                        patchFile.absolutePath//补丁文件path
+                    )
+
                 }
             }
 
@@ -68,7 +78,12 @@ class MainViewModel : ViewModel() {
                         ToastUtils.showShort("补丁文件或旧文件缺失")
                         return@withContext
                     }
-                    XeonBsDiffUtil.patch(oldFile.absolutePath, patchFile.absolutePath, combineFile.absolutePath)
+                    /*合并补丁包，耗时操作，记得放在子线程  返回值 0表示成功*/
+                    val result = XeonBsDiffUtil.patch(
+                        oldFile.absolutePath,
+                        patchFile.absolutePath,
+                        combineFile.absolutePath
+                    )
                 }
             }
             LogUtils.i("合并补丁文件耗时:${measureTimeMillis}")
@@ -79,3 +94,4 @@ class MainViewModel : ViewModel() {
 
     }
 }
+

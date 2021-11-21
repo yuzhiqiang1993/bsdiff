@@ -53,7 +53,12 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
     implementation "com.blankj:utilcodex:1.30.6"
-    implementation project(path: ':xeon_bsdiff')
+    /*依赖远程库*/
+    implementation "io.github.yuzhiqiang1993:xeon_bsdiff:1.0.0"
+
+
+    /*依赖本地库*/
+//    implementation project(path: ':xeon_bsdiff')
 
 
 }
