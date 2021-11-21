@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id "com.vanniktech.maven.publish"
 }
 
 android {
@@ -10,7 +11,7 @@ android {
         minSdk 21
         targetSdk 31
         versionCode 1
-        versionName "0.01"
+        versionName "1.0.0"
         consumerProguardFiles "consumer-rules.pro"
         externalNativeBuild {
             cmake {
@@ -40,6 +41,10 @@ android {
     }
 }
 
-dependencies {
 
+
+plugins.withId("com.vanniktech.maven.publish") {
+    mavenPublish {
+        sonatypeHost = "S01"
+    }
 }
