@@ -20,7 +20,7 @@ object XeonBsDiffUtil {
      * @param patchFilePath String  生成的补丁文件地址
      * @return Int
      */
-    external fun diff(newFilePath: String, oldFilePath: String, patchFilePath: String): Int
+    external fun bsdiff(newFilePath: String, oldFilePath: String, patchFilePath: String): Int
     /**
      * 合并差分包
      * @param oldFilePath String 旧文件地址
@@ -28,6 +28,6 @@ object XeonBsDiffUtil {
      * @param combineFilePath String 合并后的新文件地址
      * @return Int
      */
-    external fun patch(oldFilePath: String, patchFilePath: String, combineFilePath: String): Int
+    external fun bspatch(oldFilePath: String, patchFilePath: String, combineFilePath: String): Int
 
 }
