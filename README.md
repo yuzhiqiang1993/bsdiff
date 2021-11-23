@@ -29,7 +29,7 @@ implementation "io.github.yuzhiqiang1993:xeon_bsdiff:1.0.1"
 
 ```
 /*生成补丁包，耗时操作，记得放在子线程  返回值 0表示成功*/
-val result = XeonBsDiffUtil.diff(
+val result = XeonBsDiffUtil.bsdiff(
     newFile.absolutePath,//新文件path
     oldFile.absolutePath,//旧文件path
     patchFile.absolutePath//补丁文件path
@@ -40,7 +40,7 @@ val result = XeonBsDiffUtil.diff(
 
 ```
 /*合并补丁包，耗时操作，记得放在子线程  返回值 0表示成功*/
-val result = XeonBsDiffUtil.patch(
+val result = XeonBsDiffUtil.bspatch(
     oldFile.absolutePath,
     patchFile.absolutePath,
     combineFile.absolutePath
