@@ -1,12 +1,27 @@
 # XeonDiff
-超简单实现Android端 文件差分与文件合并。快速实现增量更新功能
+超简单在Android端通过bsdiff实现件差分与文件合并。快速实现增量更新功能
 
-使用方式：
+先上图：
+
+生成补丁包
+
+![生成补丁包](https://github.com/yuzhiqiang1993/XeonBsDiff/blob/main/img/diff.png "生成补丁包")
+
+合并补丁包
+![合并补丁包](https://github.com/yuzhiqiang1993/XeonBsDiff/blob/main/img/patch.png "合并补丁包")
+
+产生的文件：
+![产生的文件](https://github.com/yuzhiqiang1993/XeonBsDiff/blob/main/img/result.png "产生的文件")
+
+
+代码示例：
 
 1.添加依赖
 
+查看最新版本  https://search.maven.org/artifact/io.github.yuzhiqiang1993/xeon_bsdiff
+
 ```
-implementation "io.github.yuzhiqiang1993:xeon_bsdiff:1.0.0"
+implementation "io.github.yuzhiqiang1993:xeon_bsdiff:1.0.1"
 ```
 
 2.生成补丁包
@@ -38,6 +53,3 @@ val result = XeonBsDiffUtil.patch(
 如果需要自己生成so库，请看博客： https://blog.csdn.net/yuzhiqiang_1993/article/details/121317195
 
 source目录中有bzip和bsdiff源码文件。
-
-
-
