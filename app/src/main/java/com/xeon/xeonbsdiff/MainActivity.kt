@@ -24,12 +24,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        /*Éú³É²¹¶¡°ü*/
+        /*ç”Ÿæˆè¡¥ä¸åŒ…*/
         binding.btnDiff.setOnClickListener {
             vm.fileDiff()
         }
 
-        /*ºÏ²¢ÎÄ¼ş*/
+        /*åˆå¹¶è¡¥ä¸åŒ…*/
         binding.btnPatch.setOnClickListener {
             vm.filePatch()
         }
