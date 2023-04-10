@@ -4,17 +4,16 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 33
     defaultConfig {
-        applicationId "com.xeon.xeonbsdiff"
+        applicationId "com.xeon.xeonbsdiff.demo"
         minSdk 21
-        targetSdk 31
+        targetSdk 33
         versionCode 1
-        versionName "0.01"
-
-//        ndk{
-//            abiFilters "armeabi" , "armeabi-v7a" , "arm64-v8a"
-//        }
+        versionName "0.0.1"
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a"
+        }
     }
 
     buildTypes {
@@ -49,12 +48,13 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2-native-mt'
-    api "androidx.activity:activity-ktx:1.4.0"
+    implementation "androidx.activity:activity-ktx:1.4.0"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
     implementation "com.blankj:utilcodex:1.30.6"
     /*依赖远程库*/
-    implementation "io.github.yuzhiqiang1993:xeon_bsdiff:1.0.1"
+//    implementation "io.github.yuzhiqiang1993:xeon_bsdiff:1.0.1"
+    implementation "com.xeonyu:bsdiff:1.0.2"
 
 
     /*依赖本地库*/

@@ -1,9 +1,9 @@
-package com.xeon.xeonbsdiff
+package com.xeon.demo
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.xeon.xeonbsdiff.databinding.ActivityMainBinding
+import com.xeon.xeonbsdiff.demo.databinding.ActivityMainBinding
 
 /**
  * @description: MainActiviy

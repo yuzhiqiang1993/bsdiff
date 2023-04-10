@@ -1,9 +1,16 @@
-package com.xeon.xeonbsdiff
+package com.xeon.demo
 
-import androidx.lifecycle.*
-import com.blankj.utilcode.util.*
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.blankj.utilcode.util.FileUtils
+import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.PathUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.xeon.bsdiff.utils.XeonBsDiffUtil
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.File
 import kotlin.system.measureTimeMillis
 

@@ -10,7 +10,10 @@ package com.xeon.bsdiff.utils
 object XeonBsDiffUtil {
 
     init {
-        System.loadLibrary("xeon_bsdiff")
+        kotlin.runCatching {
+            System.loadLibrary("xeon_bsdiff")
+        }
+
     }
 
     /**
@@ -21,6 +24,7 @@ object XeonBsDiffUtil {
      * @return Int
      */
     external fun bsdiff(newFilePath: String, oldFilePath: String, patchFilePath: String): Int
+
     /**
      * 合并差分包
      * @param oldFilePath String 旧文件地址

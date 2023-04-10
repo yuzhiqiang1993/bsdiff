@@ -17,11 +17,8 @@
 代码示例：
 
 1.添加依赖
-
-查看最新版本  https://search.maven.org/artifact/io.github.yuzhiqiang1993/xeon_bsdiff
-
 ```
-implementation "io.github.yuzhiqiang1993:xeon_bsdiff:1.0.1"
+implementation "com.xeonyu:bsdiff:1.0.2"
 ```
 
 2.生成补丁包
