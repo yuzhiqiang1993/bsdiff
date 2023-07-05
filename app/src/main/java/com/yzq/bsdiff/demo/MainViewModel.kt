@@ -1,4 +1,4 @@
-package com.xeon.demo
+package com.yzq.bsdiff.demo
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -6,7 +6,7 @@ import com.blankj.utilcode.util.FileUtils
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.PathUtils
 import com.blankj.utilcode.util.ToastUtils
-import com.xeon.bsdiff.utils.XeonBsDiffUtil
+import com.yzq.bsdiff.BsDiffTool
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -31,19 +31,19 @@ class MainViewModel : ViewModel() {
     }
 
     /*文件后缀名*/
-    private val suffix = "apk"
+    private val suffix = "txt"
 
     /*旧文件*/
-    private val oldFile = File(PathUtils.getExternalAppFilesPath(), "old.${suffix}")
+    private val oldFile = File(PathUtils.getInternalAppFilesPath(), "old.${suffix}")
 
     /*新文件*/
-    private val newFile = File(PathUtils.getExternalAppFilesPath(), "new.${suffix}")
+    private val newFile = File(PathUtils.getInternalAppFilesPath(), "new.${suffix}")
 
     /*补丁文件*/
-    private val patchFile = File(PathUtils.getExternalAppFilesPath(), "patch.${suffix}")
+    private val patchFile = File(PathUtils.getInternalAppFilesPath(), "patch.${suffix}")
 
     /*合并后的文件*/
-    private val combineFile = File(PathUtils.getExternalAppFilesPath(), "combine.${suffix}")
+    private val combineFile = File(PathUtils.getInternalAppFilesPath(), "combine.${suffix}")
 
     /*生成补丁文件*/
     fun fileDiff() {
@@ -57,7 +57,7 @@ class MainViewModel : ViewModel() {
                     }
 
                     /*生成补丁包，耗时操作，记得放在子线程  返回值 0表示成功*/
-                    val result = XeonBsDiffUtil.bsdiff(
+                    val result = BsDiffTool.diff(
                         newFile.absolutePath,//新文件path
                         oldFile.absolutePath,//旧文件path
                         patchFile.absolutePath//补丁文件path
@@ -86,7 +86,7 @@ class MainViewModel : ViewModel() {
                         return@withContext
                     }
                     /*合并补丁包，耗时操作，记得放在子线程  返回值 0表示成功*/
-                    val result = XeonBsDiffUtil.bspatch(
+                    val result = BsDiffTool.patch(
                         oldFile.absolutePath,
                         patchFile.absolutePath,
                         combineFile.absolutePath

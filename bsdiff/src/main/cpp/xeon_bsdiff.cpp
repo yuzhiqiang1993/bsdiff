@@ -13,7 +13,8 @@ extern int bspatch_main(int argc, char *argv[]);
  */
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_xeon_bsdiff_utils_XeonBsDiffUtil_bsdiff(JNIEnv *env, jobject thiz, jstring new_file_path, jstring old_file_path, jstring patch_file_path) {
+Java_com_yzq_bsdiff_BsDiffTool_diff(JNIEnv *env, jobject thiz, jstring new_file_path,
+                                    jstring old_file_path, jstring patch_file_path) {
 
     const char *newFile = env->GetStringUTFChars(new_file_path, nullptr);
     const char *oldFile = env->GetStringUTFChars(old_file_path, nullptr);
@@ -33,7 +34,9 @@ Java_com_xeon_bsdiff_utils_XeonBsDiffUtil_bsdiff(JNIEnv *env, jobject thiz, jstr
  */
 extern "C"
 JNIEXPORT jint JNICALL
-Java_com_xeon_bsdiff_utils_XeonBsDiffUtil_bspatch(JNIEnv *env, jobject thiz, jstring old_file_path, jstring patch_file_path, jstring combine_file_path) {
+Java_com_yzq_bsdiff_BsDiffTool_patch(JNIEnv *env, jobject thiz, jstring old_file_path,
+                                     jstring patch_file_path,
+                                     jstring combine_file_path) {
     const char *oldFile = env->GetStringUTFChars(old_file_path, nullptr);
     const char *patchFile = env->GetStringUTFChars(patch_file_path, nullptr);
     const char *combineFile = env->GetStringUTFChars(combine_file_path, nullptr);
