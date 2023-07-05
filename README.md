@@ -18,7 +18,7 @@
 
 1.添加依赖
 ```
-implementation "com.xeonyu:bsdiff:1.0.2"
+implementation "com.xeonyu:bsdiff:1.0.3"
 ```
 
 2.生成补丁包
@@ -26,22 +26,23 @@ implementation "com.xeonyu:bsdiff:1.0.2"
 
 ```
 /*生成补丁包，耗时操作，记得放在子线程  返回值 0表示成功*/
-val result = XeonBsDiffUtil.bsdiff(
+val result = BsDiffTool.diff(
     newFile.absolutePath,//新文件path
     oldFile.absolutePath,//旧文件path
     patchFile.absolutePath//补丁文件path
-)
+    )
+
 ```
 
 3.合并补丁包
 
 ```
 /*合并补丁包，耗时操作，记得放在子线程  返回值 0表示成功*/
-val result = XeonBsDiffUtil.bspatch(
-    oldFile.absolutePath,
-    patchFile.absolutePath,
-    combineFile.absolutePath
-)
+    val result = BsDiffTool.patch(
+        oldFile.absolutePath,
+        patchFile.absolutePath,
+        combineFile.absolutePath
+    )
 ```
 
 4.合并补丁包后记得对比下新文件和合并后文件的MD5值， MD5值一致表示成功。
