@@ -7,7 +7,6 @@ android {
     namespace = "com.yzq.bsdiff"
 
     defaultConfig {
-        minSdk = 21
         externalNativeBuild {
             cmake {
                 cppFlags("")

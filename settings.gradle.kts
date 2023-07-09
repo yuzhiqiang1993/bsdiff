@@ -20,7 +20,8 @@ dependencyResolutionManagement {
 
     versionCatalogs {
         create("libs") {
-            from("com.xeonyu:version-catalog:0.0.5")
+            from("com.xeonyu:version-catalog:0.0.8")
+            version("xeonBsDiff", "1.0.4")
         }
     }
 }
