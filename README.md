@@ -18,7 +18,7 @@
 
 1.添加依赖
 ```
-implementation "com.xeonyu:bsdiff:1.0.3"
+implementation "com.xeonyu:bsdiff:1.0.4"
 ```
 
 2.生成补丁包
